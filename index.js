@@ -13,9 +13,6 @@ mongus.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(
     if (!err) console.log("Connected in MongoDb");
 });
 
-//const Schema = mongus.Schema;
-
-
 app.use(express.json());
 
 app.get('/', async(req, res) => {
@@ -27,7 +24,8 @@ app.post('/post', async (req, res) => {
         { 
             Username: req.body.Username,
             Password: req.body.Password ,
-            Gender : req.body.Gender
+            Gender : req.body.Gender,
+            Email : req.body.Email
         });
         document.save().then(data => {
             res.json(data);
@@ -37,7 +35,7 @@ app.post('/post', async (req, res) => {
                 message: err
         })
     });
-    console.log("document succesfully inserted");
+    console.log("Document succesfully inserted");
 });
 
 app.listen(port, () => console.log(`Listening on port : http://localhost:${port}`));

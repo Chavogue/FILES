@@ -1,6 +1,6 @@
 const mongus = require('mongoose');
 
-const schem = mongus.Schema({
+const schem = mongus.Schema([{
     Username : 
     {
         type: String, required:true
@@ -12,6 +12,10 @@ const schem = mongus.Schema({
     Gender : 
     {
         type: String, required:true
+    },
+    Email : 
+    {
+        type: String, required:true
     }
-})
+}])
 module.exports = mongus.model('users', schem);
