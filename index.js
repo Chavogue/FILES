@@ -1,5 +1,6 @@
 const express = require('express');
-const url = "mongodb+srv://Teyzar:awdse48657@cluster0.pnxcx.mongodb.net/test?retryWrites=true&w=majority";
+require('dotenv').config()
+const url = process.env.DB_URL;
 const mongus = require('mongoose');
 const schema = require('./schema/schema.js');
 
