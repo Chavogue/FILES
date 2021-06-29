@@ -1,3 +1,5 @@
 .env
-.logs
-.json
+node_modules/
+dist/
+.vscode
+.txt
