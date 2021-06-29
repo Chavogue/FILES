@@ -1,5 +1,6 @@
 .env
 node_modules/
+/public/storage
 dist/
 .vscode
-.txt
+test.txt
