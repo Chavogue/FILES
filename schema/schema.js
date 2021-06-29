@@ -1,19 +1,19 @@
 const mongus = require('mongoose');
 
 const schem = mongus.Schema({
-    Username : 
+    FirstName: 
     {
         type: String, required:true
     },
-    Password : 
+    SecondName:  
     {
         type: String, required:true
     },
-    Gender : 
+    Gender: 
     {
         type: String, required:true
     },
-    Email : 
+    City: 
     {
         type: String, required:true
     }
