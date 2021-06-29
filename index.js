@@ -4,14 +4,12 @@ const url = process.env.DB_URL;
 const mongus = require('mongoose');
 const schema = require('./schema/schema.js');
 
-
 const app = express();
-const port = 3000;
-
+const port = 6969;
 
 mongus.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, db) {
     if (err) console.log(err)
-    if (!err) console.log("Connected in MongoDb");
+    if (!err) console.log("Successfully connected to MongoDB!");
 });
 
 app.use(express.json());
@@ -23,10 +21,10 @@ app.get('/', async(req, res) => {
 app.post('/post', async (req, res) => {
     const document = new schema(
         { 
-            Username: req.body.Username,
-            Password: req.body.Password ,
-            Gender : req.body.Gender,
-            Email : req.body.Email
+            FirstName: req.body.Username,
+            LastName: req.body.Password ,
+            Gender: req.body.Gender,
+            City: req.body.Email
         });
         document.save().then(data => {
             res.json(data);
@@ -36,7 +34,7 @@ app.post('/post', async (req, res) => {
                 message: err
         })
     });
-    console.log("Document succesfully inserted");
+    console.log("Successfully inserted the document!");
 });
 
-app.listen(port, () => console.log(`Listening on port : http://localhost:${port}`));
+app.listen(port, () => console.log(`Listening on port: http://localhost:${port}`));
